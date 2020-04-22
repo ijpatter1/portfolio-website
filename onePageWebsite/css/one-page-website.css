@@ -1,0 +1,22 @@
+/* GENERIC STYLES */
+
+html {
+    font-family: sans-serif;
+    font-size: 100%;
+}
+body {
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/* Contact form styles */
+.contact-form form input[type="text"],
+.contact-form form input[type="email"] {
+    width: 15%;
+    margin: 10px 1em;
+    border-top: 1px solid #090b0d;
+    border-right: 2px solid #424549;
+    border-bottom: 2px solid #424549;
+    border-left: 1px solid #090b0d;
+    border-radius: 2px;
+    display: block;
+}
