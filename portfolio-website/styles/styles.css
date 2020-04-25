@@ -1,0 +1,186 @@
+/* PAGE WIDE STYLES */
+
+body {
+    margin: 0%;
+    background-color: #212121;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* NAV BAR */
+
+nav {
+    overflow: hidden;
+    background-color: #303030;
+    width: 100%;
+}
+nav a {
+    color: #f2f2f2;
+    text-decoration: none;
+    float: left;
+    display: block;
+    margin: auto;
+    padding: 1vmax;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vmax;
+    text-align: center;
+}
+nav a.active {
+    background-color: #212121;
+}
+
+/* HOME PAGE DESIGN */
+#home {
+    max-height: 1024px;
+    max-width: 1366px;
+    overflow: hidden;
+}
+
+.text-container {
+    overflow: hidden;
+    padding-top: 2%;
+    padding-left: 3%;
+    display: inline-block;
+}
+.hi {
+    display: block;
+    text-align: left;
+    color: rgba(211, 211, 211, 0.575);
+    font-family: 'Inconsolata', monospace;
+    font-size: 6vmax;
+}
+.orange {
+    color: rgba(199, 111, 71, 1);
+}
+.blue {
+    color: rgba(94, 135, 197, 0.5);
+}
+.lgblue {
+    color: rgba(115, 222, 255, 0.623);
+}
+.heading {
+    color: lightgray;
+}
+.heading:hover {
+    color: rgb(177, 21, 0)
+}
+.smscreen {
+    display: none;
+}
+.button {
+    background-color:#5A7EA6;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 6vmax;
+}
+/* BREAK TEXT */
+@media screen and (max-width: 700px) {
+    .smscreen {
+        display: inline;
+    }
+    .heading:hover{
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        color: rgb(177, 21, 0);
+    }
+}
+/* SMARTPHONE PORTRAIT*/
+@media screen and (max-width: 415px) {
+    nav a {
+        padding: 1.5vmax;
+        font-size: 2.5vmax;
+    }
+    .text-container {
+        padding-top: 10%;
+        padding-left: 2%;
+    }
+    .hi {
+        font-size: 10.5vw;
+    }
+    .button {
+        font-size: 10.5vw;
+    }
+}
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,375px));
+    gap: 1vw;
+    background-color: #f2f2f2;
+    justify-content: center;
+}
+.grid > div {
+    padding-right: 5%;
+    padding-left: 5%;
+    border-radius: 1%;
+    color: #212121;
+    text-align: center;
+} 
+.grid > div h1 {
+    font-size: 30px;
+}
+#about p {
+    margin-top: 0px;
+}
+.grid > div p {
+    font-size: 25px;
+}
+/*#family p {
+    font-family: Bradley Hand, cursive;
+    padding-bottom: 5px;
+    margin-bottom: -5px;
+}*/
+#projects img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 8px;
+}
+#projects img:hover {
+    filter: invert(100%);
+}
+input[type=text] {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #212121;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    resize: vertical;
+    font-size: 16px;
+}
+textarea {
+    width: 90%;
+    height: 125px;
+    padding: 12px;
+    border: 1px solid #212121;
+    font-size: 16px;
+    resize: none;
+}
+input[type=submit] {
+    background-color: #303030;
+    color: #f2f2f2;
+    font-weight: bold;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    padding: 15px 25px;
+    font-size: 25px;
+}
+input[type=submit]:hover {
+    background-color: #212121;
+    cursor: pointer;
+}
+footer p, footer a {
+    margin: 0;
+    padding: 12px 20px;
+    background-color: #303030;
+    color: #f2f2f2;
+}
+footer a {
+    display: block;
+    float: left;
+}
