@@ -70,6 +70,9 @@ nav a.active {
 .smscreen {
     display: none;
 }
+.hide {
+    color: #212121;
+}
 .button {
     background-color:#5A7EA6;
     color: #f2f2f2;
