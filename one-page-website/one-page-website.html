@@ -21,28 +21,81 @@
         <!--home-->
         <section id="home">
             <div class="wrap">
-                <div>
-                    <iframe src=""></iframe>
-                    <div id="overlay">
-                        <h1>tunameltsmyheart</h1>
-                        <p>the under dog with the overbite</p>
-                    </div>
-                </div>
             </div>     
         </section>
         <!--end home-->
         <!--about-->
         <section id="about">
             <div class="wrap">
-                <div class="column">
-                    <div>
-                        <h2>About</h2>
-                        <p>Tuna is a...</p>
+                <div>
+                    <h2>About</h2>
+                    <p>Tuna is a funny-looking dog! Check him out:</p>
+                </div>
+                <!-- Images used to open the lightbox -->
+                <div class="row">
+                    <div class="column">
+                    <img class="thumb" src="./images/thumbnail-1.png" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                    </div>
+                    <div class="column">
+                    <img class="thumb" src="./images/thumbnail-2.png" onclick="openModal();currentSlide(2)" class="hover-shadow">
+                    </div>
+                    <div class="column">
+                    <img class="thumb" src="./images/thumbnail-3.png" onclick="openModal();currentSlide(3)" class="hover-shadow">
+                    </div>
+                    <div class="column">
+                    <img class="thumb" src="./images/thumbnail-4.png" onclick="openModal();currentSlide(4)" class="hover-shadow">
                     </div>
                 </div>
-                <div class="column">
-                    <div>
-                        <img src="">
+                
+                <!-- The Modal/Lightbox -->
+                <div id="myModal" class="modal">
+                    <span class="close cursor" onclick="closeModal()">&times;</span>
+                    <div class="modal-content">
+                
+                        <div class="mySlides">
+                            <div class="numbertext">1 / 4</div>
+                            <img class="slideImg" src="./images/thumbnail-1.png">
+                        </div>
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">2 / 4</div>
+                            <img class="slideImg" src="./images/thumbnail-2.png">
+                        </div>
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">3 / 4</div>
+                            <img class="slideImg" src="./images/thumbnail-3.png">
+                        </div>
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">4 / 4</div>
+                            <img class="slideImg" src="./images/thumbnail-4.png">
+                        </div>
+                    
+                        <!-- Next/previous controls -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    
+                        <!-- Caption text -->
+                        <div class="caption-container">
+                            <p id="caption"></p>
+                        </div>
+                    
+                        <!-- Thumbnail image controls -->
+                        <div class="thumbWrap">
+                            <div class="thumbColumn">
+                                <img class="demo" src="./images/thumbnail-1.png" onclick="currentSlide(1)" alt="Tuna on the bed">
+                            </div>
+                            <div class="thumbColumn">
+                                <img class="demo" src="./images/thumbnail-2.png" onclick="currentSlide(2)" alt="Tuna selfie">
+                            </div>
+                            <div class="thumbColumn">
+                                <img class="demo" src="./images/thumbnail-3.png" onclick="currentSlide(3)" alt="Tuna and Colin">
+                            </div>
+                            <div class="thumbColumn">
+                                <img class="demo" src="./images/thumbnail-4.png" onclick="currentSlide(4)" alt="Tuna at the beach">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,8 +129,9 @@
         </section>
         <!--end contact-->
         <!--footer-->
-        <div>
+        <footer>
             www.tunameltsmyheart.com &nbsp;|&nbsp; <a href="https://www.instagram.com/tunameltsmyheart/">Instagram</a> &nbsp;|&nbsp; &copy; 2020
-        </div>
+        </footer>
+        <script src="./js/one-page-website.js"></script>
     </body>
 </html>
