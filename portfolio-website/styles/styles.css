@@ -13,7 +13,6 @@ img {
     height: auto;
 }
     /* NAV BAR */
-
 nav {
     overflow: hidden;
     background-color: #303030;
@@ -39,10 +38,12 @@ nav a.active {
 .topnav a:hover {
     background-color: #404040;
     color: white;
-  }
+}
+.contact-link {
+    cursor: pointer;
+}
 
-
-    /* HOME PAGE DESIGN */
+    /* HOME SECTION DESIGN AND ANIMATION STYLING */
 #home {
     max-height: 1024px;
     max-width: 1366px;
@@ -99,7 +100,7 @@ nav a.active {
     border-right: 0.2rem solid lightgray;
 }
 
-    /* BREAK TEXT AND OTHER RESPONSIVE BEHAVIORS*/
+    /* BREAK TEXT AND OTHER RESPONSIVE BEHAVIORS */
 @media screen and (max-width: 600px) {
     .smscreen {
         display: inline;
@@ -206,7 +207,6 @@ nav a.active {
     max-width: 30%;
 }
 #projects img {
-    max-width: 100%;
     height: auto;
     margin-top: 4px;
 }
@@ -214,7 +214,7 @@ nav a.active {
     filter: invert(100%);
 }
     /* POP UP FORM AND STICKY BUTTON */
-    /* Button used to open the contact form - fixed at the bottom of the page */
+    
 @keyframes movePopup {
     from {right: -80vmax;}
     to {bottom: 1.75vmax;}

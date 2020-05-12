@@ -29,7 +29,6 @@ function homepageAnimation() {
 function typeWriter(selectedSpan) {
     selectedSpan.classList.add('cursor');
     let txt = selectedSpan.getAttribute('data-text');
-    //txt = he.decode(txt);
     for(i=0; i<txt.length; i++) {
         (function(i){
             setTimeout(function(){
@@ -58,7 +57,7 @@ class myNameChanger {
         this.isDeleting = true;
     }
     type() {
-        // current index of name
+        // current index of name, allows the function to loop because the last position % index.length is equal to zero
         const current = this.nameIndex % this.names.length;
 
         // get full text of current name
