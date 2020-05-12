@@ -216,7 +216,7 @@ nav a.active {
     /* POP UP FORM AND STICKY BUTTON */
     /* Button used to open the contact form - fixed at the bottom of the page */
 @keyframes movePopup {
-    from {right: -80max;}
+    from {right: -80vmax;}
     to {bottom: 1.75vmax;}
 }
 .form-header {
@@ -240,7 +240,7 @@ nav a.active {
     width: 7vmax;
     height: 7vmax;
     -webkit-animation: movePopup 10s;
-    animation: movePopup 1s ease-in;
+    animation: movePopup 10s ease-in;
 }
 .open-button > i {
     position: relative;
