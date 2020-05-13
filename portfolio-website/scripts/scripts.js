@@ -1,46 +1,92 @@
-/////////////////////////
-// home page animation //
-/////////////////////////
-
-document.addEventListener('DOMContentLoaded',homepageAnimation);
-
-function homepageAnimation() {
-    // create a nodelist of all the elements we want to print on the screen
-    var spans = document.querySelectorAll(".typewriter");
-
-    // typing function with set timeouts with predetermined delays to stop typing animations from overlapping
-    // function.prototype.bind method allows us to pass typeWriter to setTimeout with an argument
-    setTimeout(typeWriter.bind(null, spans[0]), 0);
-    setTimeout(typeWriter.bind(null,spans[1]), 500);
-    setTimeout(typeWriter.bind(null,spans[2]), 800);
-    setTimeout(typeWriter.bind(null, spans[3]), 1200);
-    setTimeout(typeWriter.bind(null, spans[4]), 1800);
-    setTimeout(typeWriter.bind(null, spans[5]), 2450);
-    setTimeout(typeWriter.bind(null, spans[6]), 2650);
-    setTimeout(typeWriter.bind(null, spans[7]), 3050);
-    setTimeout(typeWriter.bind(null, spans[8]), 4600);
-    setTimeout(typeWriter.bind(null, spans[9]), 5600);
-    setTimeout(typeWriter.bind(null, spans[10]), 6650);
-    setTimeout(typeWriter.bind(null, spans[11]), 8100);
-    setTimeout(typeWriter.bind(null, spans[12]), 8950);
-};
-
-//typeWriter function
-function typeWriter(selectedSpan) {
+/////////////////////////////
+//HOMEPAGE TYPING ANIMATION//
+/////////////////////////////
+function typeWriter(selectedSpan, typeSpeed) {
+    // in case of weirdness
+    if(selectedSpan == undefined || typeSpeed == NaN) {
+        return ['',0];
+    }
+    // add cursor effect
     selectedSpan.classList.add('cursor');
+    // get text data from span element
     let txt = selectedSpan.getAttribute('data-text');
-    for(i=0; i<txt.length; i++) {
-        (function(i){
+    // this loop creates the typing effect
+    for(c=0; c<txt.length; c++) { // c is for character
+        (function(c){
             setTimeout(function(){
-                selectedSpan.innerHTML += txt[i];
-            }, i*100);
-        }(i));
+                selectedSpan.innerHTML += txt[c];
+            }, c*typeSpeed);
+        }(c));
     };
-    let delay = (txt.length)*100;
-    setTimeout(() => selectedSpan.classList.remove('cursor'), delay);
-    
-    //console.log(delay); used to determine timing
+    // remove cursor effect
+    let duration = (txt.length)*typeSpeed;
+    setTimeout(() => selectedSpan.classList.remove('cursor'), duration);
+    // create output for controller to check text output and determine timing
+    let outputArray = [txt, duration];
+    return outputArray;
 };
+
+class myController {
+    constructor(spansList, textArray, wait, typeSpeed) {
+        this.spansList = spansList;
+        this.textArray = textArray;
+        this.index = 0;
+        this.wait = parseInt(wait,10);
+        this.typeSpeed = parseInt(typeSpeed,10);
+        this.isTyping = false;
+        this.output = '';
+        this.type();
+    }
+    type() {
+        // set pause to default
+        let pause = 0;
+        // set text check variable to current text
+        const current = this.textArray[this.index];
+
+        // if current text has finished being typed
+        if(this.isTyping && this.output[0] == current) {
+            // increment index counter
+            this.index++;
+            // signal to controller that typing has finished
+            this.isTyping = false;
+            // change pause to set wait time between words
+            pause = this.wait;
+            // reset output array
+            this.output = [];
+
+         // check if current text hasn't started typing
+        } else if(!this.isTyping && this.output == '') {
+            // signal to controller that typing has started
+            this.isTyping = true;
+            // start typing a new word
+            this.output = typeWriter(this.spansList[this.index], this.typeSpeed);
+            pause = this.output[1];
+        }
+        // check if entire text has finished typing
+        if(this.index == this.spansList.length) {
+            // exit
+            return;
+
+         // if not, callback
+        } else {
+            setTimeout(() => this.type(), pause);
+        }
+    }
+}
+
+function homeAnimationInit() {
+    const spansList = document.querySelectorAll('.typewriter');
+    const textArray = [];
+    for (i = 0; i < spansList.length; i++) {
+        let text = spansList[i].getAttribute('data-text');
+        textArray.push(text);;
+    }
+    const wait = 200;
+    const typeSpeed = 100;
+    // start myController
+    new myController(spansList, textArray, wait, typeSpeed);
+}
+document.addEventListener('DOMContentLoaded',homeAnimationInit);
 
 //////////////////////////
 // change name function //
