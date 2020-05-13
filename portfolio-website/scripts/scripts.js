@@ -6,8 +6,6 @@ function typeWriter(selectedSpan, typeSpeed) {
     if(selectedSpan == undefined || typeSpeed == NaN) {
         return ['',0];
     }
-    // add cursor effect
-    selectedSpan.classList.add('cursor');
     // get text data from span element
     let txt = selectedSpan.getAttribute('data-text');
     // this loop creates the typing effect
@@ -18,9 +16,7 @@ function typeWriter(selectedSpan, typeSpeed) {
             }, c*typeSpeed);
         }(c));
     };
-    // remove cursor effect
     let duration = (txt.length)*typeSpeed;
-    setTimeout(() => selectedSpan.classList.remove('cursor'), duration);
     // create output for controller to check text output and determine timing
     let outputArray = [txt, duration];
     return outputArray;
@@ -58,12 +54,16 @@ class myController {
         } else if(!this.isTyping && this.output == '') {
             // signal to controller that typing has started
             this.isTyping = true;
+            // remove/add cursor effect
+            if(this.index > 0) {this.spansList[this.index-1].classList.remove('cursor')};
+            this.spansList[this.index].classList.add('cursor');
             // start typing a new word
             this.output = typeWriter(this.spansList[this.index], this.typeSpeed);
             pause = this.output[1];
         }
         // check if entire text has finished typing
         if(this.index == this.spansList.length) {
+            this.spansList[this.index-1].classList.remove('cursor');
             // exit
             return;
 
