@@ -23,9 +23,8 @@ function typeWriter(selectedSpan, typeSpeed) {
 };
 
 class myController {
-    constructor(spansList, textArray, wait, typeSpeed) {
+    constructor(spansList, wait, typeSpeed) {
         this.spansList = spansList;
-        this.textArray = textArray;
         this.index = 0;
         this.wait = parseInt(wait,10);
         this.typeSpeed = parseInt(typeSpeed,10);
@@ -37,7 +36,7 @@ class myController {
         // set pause to default
         let pause = 0;
         // set text check variable to current text
-        const current = this.textArray[this.index];
+        const current = this.spansList[this.index].getAttribute('data-text');
 
         // if current text has finished being typed
         if(this.isTyping && this.output[0] == current) {
@@ -76,15 +75,10 @@ class myController {
 
 function homeAnimationInit() {
     const spansList = document.querySelectorAll('.typewriter');
-    const textArray = [];
-    for (i = 0; i < spansList.length; i++) {
-        let text = spansList[i].getAttribute('data-text');
-        textArray.push(text);;
-    }
     const wait = 200;
     const typeSpeed = 100;
     // start myController
-    new myController(spansList, textArray, wait, typeSpeed);
+    new myController(spansList, wait, typeSpeed);
 }
 document.addEventListener('DOMContentLoaded',homeAnimationInit);
 
