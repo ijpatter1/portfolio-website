@@ -1,6 +1,17 @@
 /////////////////////////////
 //HOMEPAGE TYPING ANIMATION//
 /////////////////////////////
+
+// Global variable to prevent myNameChanger starting before text has finished typing
+var TYPING = true;
+var NAME_LIST = [
+    "Ian Patterson",
+    "Michael Scott",
+    "Mary Poppins",
+    "Walter White",
+    "Leslie Knope"
+]
+
 function typeWriter(selectedSpan, typeSpeed) {
     // in case of weirdness
     if(selectedSpan == undefined || typeSpeed == NaN) {
@@ -63,6 +74,8 @@ class myController {
         // check if entire text has finished typing
         if(this.index == this.spansList.length) {
             this.spansList[this.index-1].classList.remove('cursor');
+            // let myNameChanger know text has finished typing
+            TYPING = false;
             // exit
             return;
 
@@ -139,17 +152,21 @@ class myNameChanger {
 }
 
 function init() {
-    const txtElement = document.querySelector('.myName');
-    const names = JSON.parse(txtElement.getAttribute('data-names'));
-    const wait = txtElement.getAttribute('data-wait');
-    // Init myNameChanger
-    new myNameChanger(txtElement, names, wait);
-    // stop multiples of myNameChanger being invoked on click 
-    function disable() {
-        txtElement.onclick = null;
-    };
-    disable();
-}
+    if(TYPING == false) {
+        const txtElement = document.querySelector('.myName');
+        const names = NAME_LIST;
+        const wait = txtElement.getAttribute('data-wait');
+        // Init myNameChanger
+        new myNameChanger(txtElement, names, wait);
+        // stop multiples of myNameChanger being invoked on click 
+        function disable() {
+            txtElement.onclick = null;
+        };
+        disable();
+    } else {
+        return;
+    }  
+};
 ////////////////////////
 // responsive top nav //
 ///////////////////////
