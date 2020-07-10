@@ -32,7 +32,7 @@ To dynamically type out the home page text, the typing function takes two argume
 The function assigns the string from the data-text attribute to a variable.
 To make the function type out the string, I used a self-executing anonymous function inside of a for loop that iterates through all the characters of the string.
 
-For each loop, the self-executing anonymous function takes the iterator as an argument and calls the setTimeout method.
+With each loop, the self-executing anonymous function takes the iterator as an argument and calls the setTimeout method.
 After a delay equal to the iterator multiplied by the type speed, the setTimeout method calls another anonymous function.
 This final function takes the character at the index of the iterator and inserts that character in the html element.
 
@@ -56,8 +56,10 @@ function typingFunction(selectedSpan, typeSpeed) {
 };
 ```
 The typing function returns an array to the object that called it, an instance of the myController class (below).
-The myController object makes sure the the words are typed out one after another.
-Quick side note: I realise that I could've acheived the same thing with a function but, at the time of writing this code, I wanted more practice with classes and this seemed like a fun way of doing that :)
+This output allows the myController object to make sure the the words are typed out smoothly one after another.
+
+Quick side note: I realise that I could've acheived the same thing with one big nested function but, at the time of writing this code, I wanted more practice with classes and this seemed like a fun way of doing that :)
+
 Essentially, when the object is instantiated it calls its type() method which then checks for one or more of three conditions:
 1) if the current word has finished being typed, 2) else if the current word has started being typed and 3) else if the entire text has been typed.
 Afterwards, the method is called back after a timeout determined by results of the first two conditions unless the entire text has finished being typed.
