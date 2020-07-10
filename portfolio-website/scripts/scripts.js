@@ -185,12 +185,11 @@ function myNavBar() {
 // Toggle showing and hiding contact form when the user clicks on the button
 var modal = document.querySelector(".md-modal")
 function openForm() {
+    document.getElementById("contact-form").reset();
     modal.classList.add("md-show");
 }
-
 function closeForm() {
     modal.classList.remove("md-show");
-    document.getElementById("contact-form").reset();
 }
 window.onclick = function(event) {
     if (event.target == document.querySelector(".md-overlay")) {
