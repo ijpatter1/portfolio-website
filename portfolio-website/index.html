@@ -11,79 +11,86 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <nav class="topnav" id="myTopnav">
-
-            <a href="#home" class="active">home</a>
-            <a href="#about" class="">about</a>
-            <a href="#projects" class="">projects</a>
-            <a onclick="openForm()" class="contact-link">contact</a>
-            <a href="javascript:void(0);" class="icon" onclick="myNavBar()">&#9776;</a>
-        </nav>
-        <!--homepage-->
-        <div id="home">
-            <div class="text-container">
-                <div class="hi">
-                    &nbsp;1 <span class="typewriter blue" data-text="&lt;div "></span><span class="typewriter lgblue" data-text="id="></span><span class="typewriter orange" data-text="&quot;hi&quot;"></span><span class="typewriter blue" data-text="&gt;"></span><br>
-                    &nbsp;2 &ensp;<span class="typewriter blue" data-text="&lt;h1&gt;"></span><br>
-                    &nbsp;3 &ensp;&ensp;<span class="typewriter" data-text="I'm "></span><span class="smscreen"><span class="typewriter blue break" data-text="&lt;br&gt;"></span><br>
-                    &nbsp;<span class="hide">3</span>&nbsp;&ensp;&ensp;</span><span class="typewriter myName" data-text="Ian Patterson" data-wait="1500" onclick="init()"></span><br>
-                    &nbsp;4 &ensp;<span class="typewriter blue" data-text="&lt;/h1&gt;"></span><br>
-                    &nbsp;5 &ensp;<span class="typewriter blue" data-text="&lt;button&gt;"></span><br>
-                    &nbsp;6 &ensp;&ensp;<a href="#about" class="button">
-                        <span class="typewriter" data-text="check me out"></span>
-                    </a><br>
-                    &nbsp;7 &ensp;<span class="typewriter blue" data-text="&lt;/button&gt;"></span><br>
-                    &nbsp;8 <span class="typewriter blue" data-text="&lt;/div&gt;"></span><br>&nbsp;9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17
+        <div class="md-modal md-effect-2" id="modal-2">
+            <div class="md-content">
+                <div>
+                    <h2>Contact Me</h2>
+                    <span class="cancel-btn" onclick="closeForm()">&times;</span>
+                </div>
+                <form id="contact-form" action="https://formspree.io/xrgybyoo" method="POST" target="_blank" onsubmit="closeForm()">
+                    <ul>
+                        <li>
+                            <input type="text" placeholder="Your name" name="name" required>
+                        </li>
+                        <li>
+                            <input type="tel" placeholder="Your number" name="phone" required>
+                        </li>
+                        <li>		
+                            <input type="email" placeholder="Your email" name="email" required>
+                        </li>
+                        <li>
+                            <textarea rows="7" placeholder="Your message" name="message" required></textarea>
+                        </li>
+                    </ul>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="page-container">
+            <nav class="topnav" id="myTopnav">
+                <a href="#home" class="active">home</a>
+                <a href="#about" class="">about</a>
+                <a href="#projects" class="">projects</a>
+                <a onclick="openForm()" class="contact-link">contact</a>
+                <a href="javascript:void(0);" class="icon" onclick="myNavBar()">&#9776;</a>
+            </nav>
+            <!--homepage-->
+            <div id="home">
+                <div class="text-container">
+                    <div class="hi">
+                        &nbsp;1 <span class="typewriter blue" data-text="&lt;div "></span><span class="typewriter lgblue" data-text="id="></span><span class="typewriter orange" data-text="&quot;hi&quot;"></span><span class="typewriter blue" data-text="&gt;"></span><br>
+                        &nbsp;2 &ensp;<span class="typewriter blue" data-text="&lt;h1&gt;"></span><br>
+                        &nbsp;3 &ensp;&ensp;<span class="typewriter" data-text="I'm "></span><span class="smscreen"><span class="typewriter blue break" data-text="&lt;br&gt;"></span><br>
+                        &nbsp;<span class="hide">3</span>&nbsp;&ensp;&ensp;</span><span class="typewriter myName" data-text="Ian Patterson" data-wait="1500" onclick="init()"></span><br>
+                        &nbsp;4 &ensp;<span class="typewriter blue" data-text="&lt;/h1&gt;"></span><br>
+                        &nbsp;5 &ensp;<span class="typewriter blue" data-text="&lt;button&gt;"></span><br>
+                        &nbsp;6 &ensp;&ensp;<a href="#about" class="button">
+                            <span class="typewriter" data-text="check me out"></span>
+                        </a><br>
+                        &nbsp;7 &ensp;<span class="typewriter blue" data-text="&lt;/button&gt;"></span><br>
+                        &nbsp;8 <span class="typewriter blue" data-text="&lt;/div&gt;"></span><br>&nbsp;9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17
+                    </div>
                 </div>
             </div>
+            <!--/homepage-->
+            <main class="main-container flex">
+                <div id="card">
+                        <img class="headshot"src="./images/headshot.png" alt="Ian Patterson">
+                        <h2>Ian Patterson</h2>
+                        <h3>Web developer</h3>
+                        <p>Based in Atlanta</p>
+                        <a href="https://www.linkedin.com/in/ianpatterson31/" target="_blank"><img class="linkedIn" src="./images/logo_linkedin_flat_white_93x21.png" alt="LinkedIn"></img></a>
+                </div>
+                <div id="about">
+                    <h2>About</h2>
+                    <p>I am a software developer who loves to figure stuff out! As a husband and father, I enjoy time with my family and traveling. I am a graduate of The Tech Academy’s Python Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, Python and more.</p>
+                </div>
+                <div id="projects">
+                    <h2>Projects</h2>
+                    <a href="https://github.com/ijpatter1" target="_blank"><img src="./images/github-logo.png" alt="GitHub logo"></a>
+                </div>
+            </main>
+            <!-- sticky contact button -->
+            <button class="open-button" onclick="openForm()">
+                <i class=" fa fa-send-o" aria-hidden="true"></i>
+            </button>
+            <!-- /contact button -->
+            <footer>
+                <a href="#home">Back to top</a>
+                <p>2020 iampatterson.com &copy;</p>
+            </footer>
         </div>
-        <!--/homepage-->
-        <main class="main-container flex">
-            <div id="card">
-                    <img class="headshot"src="./images/headshot.png" alt="Ian Patterson">
-                    <h2>Ian Patterson</h2>
-                    <h3>Web developer</h3>
-                    <p>Living in Atlanta</p>
-                    <a href="https://www.linkedin.com/in/ianpatterson31/" target="_blank"><img class="linkedIn" src="./images/logo_linkedin_flat_white_93x21.png" alt="LinkedIn"></img></a>
-            </div>
-            <div id="about">
-                <h2>About</h2>
-                <p>I am a software developer who loves to figure stuff out! As a husband and father, I enjoy time with my family and traveling. I am a graduate of The Tech Academy’s Python Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, Python and more.</p>
-            </div>
-            <div id="projects">
-                <h2>Projects</h2>
-                <a href="https://github.com/ijpatter1" target="_blank"><img src="./images/github-logo.png" alt="GitHub logo"></a>
-            </div>
-        </main>
-        <!-- pop up form and sticky button -->
-        <button class="open-button" onclick="openForm()">
-            <i class=" fa fa-send-o" aria-hidden="true"></i>
-        </button>
-        <div class="form-popup" id="myForm">
-            <form action="https://formspree.io/xrgybyoo" method="POST" class="form-container">
-                <div class="form-header"><h2>Contact Me</h2></div>
-
-                <label for="name"><b>Name:<br></b></label>
-                <input type="text" placeholder="Type your name here" name="name" required>
-
-                <label for="phone"><b>Phone:<br></b></label>
-                <input type="tel" placeholder="Enter your phone number here" name="phone" required>
-
-                <label for="email"><b>Email:<br></b></label>		
-                <input type="email" placeholder="Type your email address here" name="email" required>
-
-                <label for="message"><b>Message:<br></b></label>
-                <textarea rows="3" placeholder="Type your message here" name="message" required></textarea>
-
-                <button type="submit" class="btn">Send!</button>
-                <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-        </div>
-        <!-- /popup form -->
-        <footer>
-            <a href="#home">Back to top</a>
-            <p>2020 iampatterson.com &copy;</p>
-        </footer>
+        <div class="md-overlay"></div>
         <script src="./scripts/scripts.js"></script>
     </body>
 </html>

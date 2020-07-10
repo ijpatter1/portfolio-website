@@ -183,11 +183,17 @@ function myNavBar() {
 // pop-up form //
 ////////////////
 // Toggle showing and hiding contact form when the user clicks on the button
-
+var modal = document.querySelector(".md-modal")
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+    modal.classList.add("md-show");
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+    modal.classList.remove("md-show");
+    document.getElementById("contact-form").reset();
 }
+window.onclick = function(event) {
+    if (event.target == document.querySelector(".md-overlay")) {
+      modal.classList.remove("md-show");
+    }
+  }
