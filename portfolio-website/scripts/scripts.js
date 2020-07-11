@@ -21,11 +21,7 @@ function typeWriter(selectedSpan, typeSpeed) {
     let txt = selectedSpan.getAttribute('data-text');
     // this loop creates the typing effect
     for(c=0; c<txt.length; c++) { // c is for character
-        (function(c){
-            setTimeout(function(){
-                selectedSpan.innerHTML += txt[c];
-            }, c*typeSpeed);
-        }(c));
+        (function(c){setTimeout(function(){selectedSpan.innerHTML += txt[c];}, c*typeSpeed);})(c);
     };
     let duration = (txt.length)*typeSpeed;
     // create output for controller to check text output and determine timing
@@ -152,13 +148,13 @@ class myNameChanger {
 }
 
 function init() {
-    if(TYPING == false) {
+    if(TYPING == false) { // stops the object from being created unless the homepage text has finished typing
         const txtElement = document.querySelector('.myName');
         const names = NAME_LIST;
         const wait = txtElement.getAttribute('data-wait');
-        // Init myNameChanger
+        // Instantiate myNameChanger
         new myNameChanger(txtElement, names, wait);
-        // stop multiples of myNameChanger being invoked on click 
+        // stop multiples of myNameChanger being instantiated on click 
         function disable() {
             txtElement.onclick = null;
         };
