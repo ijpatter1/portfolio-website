@@ -1,4 +1,4 @@
-# portfolio-website
+# Portfolio Website
 
 ![](homepage.gif)
 
