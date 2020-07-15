@@ -2,7 +2,7 @@
 
 ![](homepage.gif)
 
-When I was tasked with creating a portfolio website, the first thing I did was to google "Web design trends 2020" (please, forgive me for my lack of creativity but we all have to start somewhere). Some of the top results immediately brought something to mind – an IDE! Dark mode; Split screen content; Solid color blocks; Plenty of whitespace; Oversized type and elements; I would use HTML and CSS to recreate the feel of an IDE and JavaScript to bring it to life. Let's go!
+When I was tasked with creating a portfolio website, the first thing I did was to google "Web design trends 2020" (please, forgive me for my lack of creativity but we all have to start somewhere). Some of the top results immediately brought something to mind – an IDE! Dark mode; Split screen content; Solid color blocks; Plenty of whitespace; Oversized type and elements; I would use HTML and CSS to recreate the feel of an IDE and JavaScript to bring it to life.
 
 ## HTML and CSS
 I used multiple <span> tags with dedicated classes per line to style the text with CSS as it might appear in an IDE set to dark mode. Instead of typing the text to be displayed between each tags, I set it as the value of a data attribute that I named data-text. This way, I could easily pass the strings to my JavaScript function and manipulate how the text was displayed.
@@ -59,7 +59,7 @@ function typingFunction(selectedSpan, typeSpeed) {
 The typing function returns an array to the object that called it, an instance of the myController class (below).
 This output allows the myController object to make sure the the words are typed out smoothly one after another.
 
-Quick side note: I realise that I could've acheived the same thing with one big nested function but, at the time of writing this code, I wanted more practice with classes and this seemed like a fun way of doing that :)
+Quick side note: I realise that I could've acheived the same thing with one big nested function but, at the time of writing this code, I wanted more practice with classes and this seemed like a fun way of doing that.
 
 Essentially, when the object is instantiated it calls its type() method which then checks for one or more of three conditions:
 1) if the current word has finished being typed, 2) else if the current word has started being typed and 3) else if the entire text has been typed.
